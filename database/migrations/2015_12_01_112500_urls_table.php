@@ -12,8 +12,11 @@ class UrlsTable extends Migration
      */
     public function up()
     {
-        Schema::table('urls', function (Blueprint $table) {
-            //
+        Schema::create('urls', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('url')->unique();
+            $table->string('short_url');
+            $table->timestamps();
         });
     }
 
@@ -24,8 +27,6 @@ class UrlsTable extends Migration
      */
     public function down()
     {
-        Schema::table('urls', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('urls');
     }
 }

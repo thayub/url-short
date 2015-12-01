@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Mbarwick83\Shorty\Facades\Shorty;
+use App\Url;
 
 class UrlController extends Controller
 {
@@ -40,11 +42,22 @@ class UrlController extends Controller
         $url = $request->input('url');
 
         if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
-            echo("$url is a valid URL");
-        } else {
-            echo("$url is not a valid URL");
-        }
+            // Calling the goo.gl url shortener
+            $shorty = Shorty::shorten($url);
+            // Shorty::stats($shorty);
 
+            $db_insert = [];
+            $db_insert['url'] = $url;
+            $db_insert['short_url'] = $shorty; 
+
+            $id = Url::create($db_insert)->id;
+
+            print_r($id);
+            die;   
+        } else {
+            \Session::flash('flash_message', 'It is an invalid URL, Kindly try again');
+            return redirect('urls/create');
+        }
     }
 
     /**

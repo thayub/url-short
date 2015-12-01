@@ -198,6 +198,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         // Added by Thayub
+        //
         'Shorty'    => Mbarwick83\Shorty\Facades\Shorty::class,
     ],
 

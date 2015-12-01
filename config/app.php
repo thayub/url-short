@@ -149,6 +149,9 @@ return [
         Acacha\AdminLTETemplateLaravel\app\Providers\AdminLTETemplateServiceProvider::class,    
         Mbarwick83\Shorty\ShortyServiceProvider::class,
 
+        // Adding for FORM in blade
+        Illuminate\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -200,6 +203,8 @@ return [
         // Added by Thayub
         //
         'Shorty'    => Mbarwick83\Shorty\Facades\Shorty::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
+        'HTML'      => Illuminate\Html\HtmlFacade::class,
     ],
 
 ];

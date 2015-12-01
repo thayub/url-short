@@ -16,7 +16,7 @@ class UrlController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -24,7 +24,7 @@ class UrlController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create1()
     {
         //
     }
@@ -69,9 +69,9 @@ class UrlController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function create()
+    {   
+        return view('urls.create');
     }
 
     /**
@@ -80,8 +80,9 @@ class UrlController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    // public function list()
+    // {
+    //     $urlsList = SupplierApplication::orderBy('id', 'ASC')->get();
+    //     return view('urls.index')->with('urlsList', $urlsList);
+    // }
 }

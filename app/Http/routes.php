@@ -25,3 +25,8 @@
 Route::get('/', function () {
      return view('auth.login');
 });
+
+Route::resource('urls','UrlController');
+
+Route::get('urls/create', 'UrlController@create');
+Route::get('urls/list', 'UrlController@list');

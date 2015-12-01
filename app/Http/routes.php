@@ -11,15 +11,17 @@
 |
 */
 
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
 
-Route::get('/home', ['middleware' => 'auth', function () {
-    return view('home');
-}]);
+// Route::get('/', 'UrlController@index');
+// Route::controllers([
+//     'auth' => 'Auth\AuthController',
+//     'password' => 'Auth\PasswordController',
+// ]);
+
+// Route::get('/home', ['middleware' => 'auth', function () {
+//     return view('home');
+// }]);
 
 Route::get('/', function () {
-    return view('welcome');
+     return view('auth.login');
 });

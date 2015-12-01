@@ -36,8 +36,15 @@ class UrlController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $url = $request->input('url');
+
+        if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
+            echo("$url is a valid URL");
+        } else {
+            echo("$url is not a valid URL");
+        }
+
     }
 
     /**

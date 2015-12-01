@@ -9,8 +9,8 @@
 </div>
 
 @section('main-content')
-{!! Form::open(['url' => 'suppliers']) !!}
+{!! Form::open(['url' => 'urls']) !!}
 @include('errors.form_error')
-@include('items.create_form', ['submitTextButton' => 'Add Item to Master List'])
+@include('urls.create_form', ['submitTextButton' => 'Shorten !!!'])
 {!! Form::close() !!}
 @endsection

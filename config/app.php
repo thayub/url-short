@@ -145,7 +145,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Acacha\AdminLTETemplateLaravel\app\Providers\AdminLTETemplateServiceProvider::class,
+        // Added by Thayub
+        Acacha\AdminLTETemplateLaravel\app\Providers\AdminLTETemplateServiceProvider::class,    
+        Mbarwick83\Shorty\ShortyServiceProvider::class,
 
     ],
 
@@ -195,7 +197,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
+        // Added by Thayub
+        'Shorty'    => Mbarwick83\Shorty\Facades\Shorty::class,
     ],
 
 ];

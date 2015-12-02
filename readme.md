@@ -11,3 +11,4 @@ Sample Laravel url shortener application which uses google url shortener API to 
 + login wih username : admin@admin.com & password:admin
 
 
+DEMO available at [mindvalley1.thayub.com] (mindvalley1.thayub.com)

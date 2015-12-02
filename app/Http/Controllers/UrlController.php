@@ -31,18 +31,27 @@ class UrlController extends Controller
         $url = $request->input('url');
 
         if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
-            // Calling the goo.gl url shortener
-            $shorty = Shorty::shorten($url);
-            // Shorty::stats($shorty);
 
-            $db_insert = [];
-            $db_insert['url'] = $url;
-            $db_insert['short_url'] = $shorty; 
+            $url_exists = Url::where('url', '=', $url)->first();
 
-            $id = Url::create($db_insert)->id;
+            if ($url_exists){
+                \Session::flash('flash_message', 'The URL has already has a short URL');
+                return redirect('urls/all');
+            }
+            else{
+                // Calling the goo.gl url shortener
+                $shorty = Shorty::shorten($url);
+                // Shorty::stats($shorty);
 
-            print_r($id);
-            die;   
+                $db_insert = [];
+                $db_insert['url'] = $url;
+                $db_insert['short_url'] = $shorty; 
+
+                $id = Url::create($db_insert)->id;
+
+                \Session::flash('flash_message', 'The URL has been shortened');
+                return redirect('urls/all');
+            }
         } else {
             \Session::flash('flash_message', 'It is an invalid URL, Kindly try again');
             return redirect('urls/create');

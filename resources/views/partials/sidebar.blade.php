@@ -22,7 +22,7 @@
                 <a href="#"><i class='fa fa-link'></i> <span>URLs Menu</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('/urls/create') }}">Shorten an URL</a></li>
-                    <li><a href="{{ url('/urls/list') }}">List of shortened URLs</a></li>                    
+                    <li><a href="{{ url('/urls/all') }}">List of shortened URLs</a></li>
                 </ul>
             </li>
         </ul>

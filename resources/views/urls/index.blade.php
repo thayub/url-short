@@ -8,41 +8,27 @@
     @yield('content')
 </div>
 @section('main-content')
-@if ($suppliersList->count())
+@if ($urlsList->count())
 <div class="row">
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">List of suppliers</h3>
+          <h3 class="box-title">List of Shortened URLs</h3>
         </div><!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
           <table class="table table-hover">
             <tr>
-                <th>Id</th>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Website</th>
-                <th>Telephone #</th>
-                <th>Country</th>
-                <th>Status</th>
-                <th colspan="3" align="center">Action</th>
+                <th>#</th>
+                <th>Actual Url</th>
+                <th>Shortened Url</th>
             </tr>
             <?php $i=0; ?>
-                @foreach ($suppliersList as $supplier)
+                @foreach ($urlsList as $url)
             <?php $i++; ?>
                 <tr>
                     <td>{{ $i }}</td>
-                    <td>{{ $supplier->code }}</td>
-                    <td>{{ $supplier->name }}</td>
-                    <td>{{ $supplier->website }}</td>
-                    <td>{{ $supplier->telephone }}</td>
-                    <td>{{ $supplier->country }}</td>
-                    @if($supplier->supplier_selected == 1)
-                        <td>Approved</td>
-                    @elseif($supplier->supplier_selected == 0)
-                        <td> Pending approval / Not Approved </td>
-                    @endif
-                    <td><a class="btn btn-warning" href="{{ url('/suppliers', $supplier->application_id)}}">View</a></td>
+                    <td>{{ $url->url }}</td>
+                    <td><a href = "{{$url->short_url}}">{{ $url->short_url }}</a></td>
                 </tr>
                 @endforeach
           </table>
@@ -51,6 +37,6 @@
     </div>
 </div>
 @else
-There are no supplier in the supplier list
+There are no urls in this list
 @endif
 @endsection

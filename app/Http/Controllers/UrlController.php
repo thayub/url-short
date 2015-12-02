@@ -20,17 +20,6 @@ class UrlController extends Controller
     {
 
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create1()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -66,11 +55,11 @@ class UrlController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $urlsList = Url::orderBy('id', 'ASC')->get();
+        return view('urls.index')->with('urlsList', $urlsList);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -85,8 +74,6 @@ class UrlController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -94,15 +81,11 @@ class UrlController extends Controller
         return view('urls.create');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    // public function list()
-    // {
-    //     $urlsList = SupplierApplication::orderBy('id', 'ASC')->get();
-    //     return view('urls.index')->with('urlsList', $urlsList);
-    // }
+    public function what()
+    {      
+        echo "I am here";
+        die;
+        // $urlsList = Url::orderBy('id', 'ASC')->get();
+        // return view('urls.index')->with('urlsList', $urlsList);
+    }
 }

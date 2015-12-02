@@ -29,4 +29,4 @@ Route::get('/', function () {
 Route::resource('urls','UrlController');
 
 Route::get('urls/create', 'UrlController@create');
-Route::get('urls/list', 'UrlController@list');
+Route::get('urls/all', 'UrlController@show');

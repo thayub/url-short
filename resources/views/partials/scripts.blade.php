@@ -14,9 +14,6 @@
 
 <!-- Supplier Edit JS : Should be ideally called from the template : Lazy loading issues ??? Need to check -->
 <!-- <script src="{{ asset('/js/app.js')}}"></script> -->
-<script src="{{ asset('/js/supplieritems/addItems.js')}}"></script>
-
-
 
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
